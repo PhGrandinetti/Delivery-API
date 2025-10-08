@@ -1,5 +1,5 @@
-em quais pastas vai as coisas do jwt e bycrypt
+em quais pastas vai as coisas do jwt e bycrypt - fazer no controler
 
-como fazer pra deixar a rota de role opcional na hora de criar
+como fazer pra deixar a rota de role opcional na hora de criar - checar no service
 
-como resolver o problema de retornar objetos
+como resolver o problema de retornar objetos - check

@@ -26,6 +26,15 @@
       "endereco": "endereço do cliente",
       "contato": "84998765442",
       "role": "user"
+    },
+    {
+      "id": "8670ceb9-bc1f-46e6-ac0f-d3f911dcbe8d",
+      "nome": "normal user tres",
+      "email": "user3@example.com",
+      "senha": "user12243",
+      "endereco": "endereço do cliente",
+      "contato": "84998765445",
+      "role": "user"
     }
   ],
   "food": [
