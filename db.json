@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nome": "admin user",
+      "email": "admin@example.com",
+      "senha": "admin123",
+      "endereco": "endereço do restaurante",
+      "contato": "89999999",
+      "role": "admin"
+    },
+    {
+      "id": "63f820f0-edef-4dd0-8ea8-a1af134965fb",
+      "nome": "normal user",
+      "email": "user@example.com",
+      "senha": "user123",
+      "endereco": "endereço do cliente",
+      "contato": "84998765432",
+      "role": "user"
+    },
+    {
+      "id": "9d8b9528-27c7-4a43-9b79-4961dea8856d",
+      "nome": "normal user dois",
+      "email": "user2@example.com",
+      "senha": "user1223",
+      "endereco": "endereço do cliente",
+      "contato": "84998765442",
+      "role": "user"
+    }
+  ],
+  "food": [
+    {
+      "id": 1,
+      "nome": "macarronada",
+      "ingredientes": "macarrao e nada",
+      "preco": "R$ 29,99",
+      "observacoes": "Contém glutém, etc.."
+    }
+  ]
+}

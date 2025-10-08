@@ -1,0 +1,5 @@
+em quais pastas vai as coisas do jwt e bycrypt
+
+como fazer pra deixar a rota de role opcional na hora de criar
+
+como resolver o problema de retornar objetos
