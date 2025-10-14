@@ -33,9 +33,17 @@ class UserRepository {
         return db.data.users
     }
 
-    static async update(index, updateData){
+    static async update(id, updateData){
         await db.read()
         
+        const index = db.data.users.findIndex(u => u.id === id)
+
+        if(index === -1){
+            const error = new Error('Usuário nao encontrado.')
+            error.statusCode = 404
+            throw error
+        }
+
         if(updateData.senha){
             const salt = await bcrypt.genSalt(env.bcryptSaltRounds)
             updateData.senha = await bcrypt.hash(updateData.senha, salt)
@@ -48,11 +56,18 @@ class UserRepository {
         return updateUser
     }
 
-    static async delete(index){
+    static async delete(id){
         await db.read()
 
-        const deletedUser = db.data.users.splice(index, 1)
+        const index = db.data.users.findIndex(u => u.id === id)
 
+        if(index === -1){
+            const error = new Error('Usuário nao encontrado.')
+            error.statusCode = 404
+            throw error
+        }
+
+        const deletedUser = db.data.users.splice(index, 1)[0]
         await db.write()
 
         return deletedUser

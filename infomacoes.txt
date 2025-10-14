@@ -1,0 +1,41 @@
+SENHAS [
+    Admin user: admin123
+    Normal user um: user123
+    Normal user dois: user1223
+    Normal user tres: user1233
+]
+
+CRIAÇÃO RÁPIDA DE USUÁRIOS:
+
+{
+  "nome": "admin user",
+  "email": "admin@example.com",
+  "senha": "admin123",
+  "endereco": "endereço do restaurante",
+  "contato": "89999999999",
+  "role": "admin"
+}
+
+{
+  "nome": "normal user um",
+  "email": "user1@example.com",
+  "senha": "user123",
+  "endereco": "endereço do cliente um",
+  "contato": "89999999999"
+}
+
+{
+  "nome": "normal user dois",
+  "email": "user2@example.com",
+  "senha": "user1223",
+  "endereco": "endereço do cliente dois",
+  "contato": "89999999999"
+}
+
+{
+  "nome": "normal user tres",
+  "email": "user3@example.com",
+  "senha": "user1233",
+  "endereco": "endereço do cliente tres",
+  "contato": "89999999999"
+}

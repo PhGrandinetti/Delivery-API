@@ -12,7 +12,7 @@ class UserService {
             throw error
         }
         
-        const newUserFromDb = await UserRepository.create(createUserData, hashedSenha, role)
+        const newUserFromDb = await UserRepository.create(createUserData)
 
         return new UserResponseDTO(newUserFromDb)
 
@@ -25,15 +25,15 @@ class UserService {
 
     static async update(id, updateData){
         
-        const index = db.data.users.findIndex(u => u.id === id)
+        const user = await UserRepository.findById(id)
 
-        if(index === -1){
-            const error = new Error('Usuário nao encontrado.')
+        if(!user){
+            const error = new Error('Usuário não encontrado')
             error.statusCode = 404
             throw error
         }
         
-        const updateUserFromDb = await UserRepository.update(index, updateData)
+        const updateUserFromDb = await UserRepository.update(id, updateData)
         return new UserResponseDTO(updateUserFromDb)
     }
 
@@ -46,19 +46,19 @@ class UserService {
             throw error
         }
 
-        return UserResponseDTO(user)
+        return new UserResponseDTO(user)
     }
 
     static async delete(id){
-        const index = db.data.users.findIndex(u => u.id === id)
+        
+        const deletedUser = await UserRepository.delete(id)
 
-        if(index === -1){
-            const error = new Error('Usuário nao encontrado.')
+        if(!deletedUser){
+            const error = new Error('Usuário não encontrado')
             error.statusCode = 404
             throw error
         }
 
-        const deletedUser = await UserRepository.delete(index)
         return new UserResponseDTO(deletedUser)
     }
 }

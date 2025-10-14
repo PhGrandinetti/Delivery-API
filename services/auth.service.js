@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 import UserRepository from '../repositories/user.repository.js'
 
 class AuthService {
-    async login({email,senha}){
+    static async login({email,senha}){
         const user = await UserRepository.findByEmail(email)
 
         if(!user){

@@ -1,39 +1,30 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "84a0f255-92d0-40f1-abe8-c0640af3407f",
       "nome": "admin user",
       "email": "admin@example.com",
-      "senha": "admin123",
+      "senha": "$2b$10$mgWke3KEQtbDNDyecUYjnexRU0ofcGTh.ETXR/KlNQxZulFfNTeLq",
       "endereco": "endereço do restaurante",
-      "contato": "89999999",
+      "contato": "89999999999",
       "role": "admin"
     },
     {
-      "id": "63f820f0-edef-4dd0-8ea8-a1af134965fb",
-      "nome": "normal user",
-      "email": "user@example.com",
-      "senha": "user123",
-      "endereco": "endereço do cliente",
-      "contato": "84998765432",
+      "id": "ff8ba51c-0772-40be-a47b-e8aab431ec74",
+      "nome": "normal user um",
+      "email": "user1@example.com",
+      "senha": "$2b$10$iHDVGxe8IoaENyfdke9lWOpyJNXzRH1WpSvO/mmEzGnB6EGaRrXlm",
+      "endereco": "endereço do cliente um",
+      "contato": "89999999999",
       "role": "user"
     },
     {
-      "id": "9d8b9528-27c7-4a43-9b79-4961dea8856d",
+      "id": "1767efc8-2d4d-42c6-8b44-dd50284713c6",
       "nome": "normal user dois",
       "email": "user2@example.com",
-      "senha": "user1223",
-      "endereco": "endereço do cliente",
-      "contato": "84998765442",
-      "role": "user"
-    },
-    {
-      "id": "8670ceb9-bc1f-46e6-ac0f-d3f911dcbe8d",
-      "nome": "normal user tres",
-      "email": "user3@example.com",
-      "senha": "user12243",
-      "endereco": "endereço do cliente",
-      "contato": "84998765445",
+      "senha": "$2b$10$dsLJXyeXDc5D1WKYJwhCr.uRz0kLvsgyTZ0D7ajWjf2b1wqZLZJdi",
+      "endereco": "endereço do cliente dois",
+      "contato": "89999999999",
       "role": "user"
     }
   ],

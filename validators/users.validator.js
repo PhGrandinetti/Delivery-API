@@ -13,7 +13,7 @@ export const createUserValidation = [
     
     body('senha')
         .notEmpty().withMessage('Senha é obrigatório.')
-        .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/)
+        .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/)// matche garantindo que a senha deve ter pelo menos um/uma numero/letra
         .withMessage('A senha deve conter pelo menos um(a) letra/número.')
         .isLength({min: 5}).withMessage('A senha deve ter no mínimo 5 caracteres.'),
     
@@ -25,41 +25,39 @@ export const createUserValidation = [
         .notEmpty().withMessage('Contato obrigatório')
         .isMobilePhone('pt-BR').withMessage('Número de telefone inválido.'),
      
-    body('role').optional()
 ]
 
 export const userIdValidation = [
     param('id')
-        .optional().isUUID().withMessage('ID inválido.'),
+        .isUUID().withMessage('ID inválido.'),
 ]
 
 export const updateUserValidation = [
     param('id')
         .isUUID().withMessage('Id inválido.'),
     
-    body('nome').optional()
+    body('nome')
+        .optional()
         .trim()
-        .notEmpty().withMessage('Nome é obrigatório.')
         .matches(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/) // matche de nome garantindo que seja somente letra e com a acentução do portugues
         .withMessage('Nome deve um texto com apenas letras e espaços.'),
 
-    body('email').optional()
+    body('email')
+        .optional()
         .normalizeEmail()
         .isEmail().withMessage('Email inválido.'),
     
     body('senha').optional()
-        .notEmpty().withMessage('Senha é obrigatório.')
         .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/)
         .withMessage('A senha deve conter pelo menos um(a) letra/número.')
         .isLength({min: 5}).withMessage('A senha deve ter no mínimo 5 caracteres.'),
     
-    body('endereco').optional()
-        .notEmpty().withMessage('Endereço é obrigatório.')
+    body('endereco')
+        .optional()
         .isLength({min:5}).withMessage('Insira um endereço válido.'),
 
-    body('contato').optional()
-        .notEmpty().withMessage('Contato obrigatório')
+    body('contato')
+        .optional()
         .isMobilePhone('pt-BR').withMessage('Número de telefone inválido.'),
      
-    body('role').optional()
 ]

@@ -9,7 +9,7 @@ const app = express()
 
 app.use(express.json())
 
-app.use('/api/user', authMiddleware, userRouter)
+app.use('/api/user', userRouter)
 app.use('/api/auth', authRouter)
 
 app.use(globalErrorHandler)
