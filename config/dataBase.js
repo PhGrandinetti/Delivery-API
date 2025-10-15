@@ -14,7 +14,7 @@ const defaulData = {
         },
     ],
 
-    "food": [
+    "menu": [
         {
             "id": 1,
             "nome": "macarronada",

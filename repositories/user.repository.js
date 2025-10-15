@@ -23,7 +23,7 @@ class UserRepository {
         }
 
         db.data.users.push(newUser)
-        db.write()
+        await db.write()
         
         return newUser
     }
@@ -39,7 +39,7 @@ class UserRepository {
         const index = db.data.users.findIndex(u => u.id === id)
 
         if(index === -1){
-            const error = new Error('Usuário nao encontrado.')
+            const error = new Error('Index nao encontrado.')
             error.statusCode = 404
             throw error
         }
@@ -62,7 +62,7 @@ class UserRepository {
         const index = db.data.users.findIndex(u => u.id === id)
 
         if(index === -1){
-            const error = new Error('Usuário nao encontrado.')
+            const error = new Error('Index nao encontrado.')
             error.statusCode = 404
             throw error
         }

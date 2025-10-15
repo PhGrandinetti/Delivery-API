@@ -18,6 +18,7 @@ export const createUserValidation = [
         .isLength({min: 5}).withMessage('A senha deve ter no mínimo 5 caracteres.'),
     
     body('endereco')
+        .trim()
         .notEmpty().withMessage('Endereço é obrigatório.')
         .isLength({min:5}).withMessage('Insira um endereço válido.'),
 
@@ -53,6 +54,7 @@ export const updateUserValidation = [
         .isLength({min: 5}).withMessage('A senha deve ter no mínimo 5 caracteres.'),
     
     body('endereco')
+        .trim()
         .optional()
         .isLength({min:5}).withMessage('Insira um endereço válido.'),
 

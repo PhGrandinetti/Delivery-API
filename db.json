@@ -28,9 +28,23 @@
       "role": "user"
     }
   ],
-  "food": [
+  "menu": [
     {
-      "id": 1,
+      "id": "214e88fb-c6b8-4ca1-82ff-20fc0054442b",
+      "nome": "Água",
+      "ingredientes": "Água",
+      "preco": "R$ 5,00",
+      "observacoes": ""
+    },
+    {
+      "id": "ad0f7e12-2cc5-4d13-8d0c-afcb50c4a3df",
+      "nome": "Parmergiana",
+      "ingredientes": "Parmesão, giló e ana",
+      "preco": "R$ 32,00",
+      "observacoes": "Contém glutém, Lactose, etc..."
+    },
+    {
+      "id": "51ec2e6c-a60c-455c-8af2-f463d239ce10",
       "nome": "macarronada",
       "ingredientes": "macarrao e nada",
       "preco": "R$ 29,99",

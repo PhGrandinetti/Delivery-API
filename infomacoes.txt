@@ -39,3 +39,27 @@ CRIAÇÃO RÁPIDA DE USUÁRIOS:
   "endereco": "endereço do cliente tres",
   "contato": "89999999999"
 }
+
+
+CRIAÇÃO RÁPIDA DE MENU:
+
+{
+      "nome": "macarronada",
+      "ingredientes": "macarrao e nada",
+      "preco": "R$ 29,99",
+      "observacoes": "Contém glutém, etc.."
+}
+
+{
+      "nome": "Água",
+      "ingredientes": "Água",
+      "preco": "R$ 5,00",
+      "observacoes": ""
+}
+
+{
+      "nome": "Parmergiana",
+      "ingredientes": "Parmesão, giló e ana",
+      "preco": "R$ 32,00",
+      "observacoes": "Contém glutém, Lactose, etc..."
+}

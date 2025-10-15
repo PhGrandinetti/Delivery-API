@@ -7,13 +7,8 @@ import { authMiddleware } from '../middlewares/auth.middleware.js'
 
 const router = express.Router()
 
-router.post(
-    '/',
-    createUserValidation,
-    handleValidationErrors,
-    UserController.create
-)
 
+//ROTAS GET
 router.get(
     '/',
     authMiddleware,
@@ -32,6 +27,15 @@ router.get(
     UserController.getById
 )
 
+//ROTAS POST
+router.post(
+    '/',
+    createUserValidation,
+    handleValidationErrors,
+    UserController.create
+)
+
+//ROTAS PATCH
 router.patch(
     '/:id',
     authMiddleware,
@@ -40,6 +44,7 @@ router.patch(
     UserController.update
 )
 
+//ROTAS - DELETE
 router.delete(
     '/:id',
     authMiddleware,

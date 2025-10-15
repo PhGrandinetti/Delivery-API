@@ -4,9 +4,9 @@ import { UserResponseDTO } from '../dtos/user.dto.js'
 class UserService {
     static async create(createUserData){
 
-        const exist = await UserRepository.findByEmail(createUserData.email)
+        const email = await UserRepository.findByEmail(createUserData.email)
         
-        if(exist){
+        if(email){
             const error = new Error('Usuário ja existe.')
             error.statusCode = 409
             throw error
@@ -23,7 +23,7 @@ class UserService {
         return users.map((user)=>new UserResponseDTO(user))
     }
 
-    static async update(id, updateData){
+    static async update(id, updateUserData){
         
         const user = await UserRepository.findById(id)
 
@@ -33,7 +33,7 @@ class UserService {
             throw error
         }
         
-        const updateUserFromDb = await UserRepository.update(id, updateData)
+        const updateUserFromDb = await UserRepository.update(id, updateUserData)
         return new UserResponseDTO(updateUserFromDb)
     }
 
