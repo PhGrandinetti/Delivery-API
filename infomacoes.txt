@@ -63,3 +63,9 @@ CRIAÇÃO RÁPIDA DE MENU:
       "preco": "R$ 32,00",
       "observacoes": "Contém glutém, Lactose, etc..."
 }
+
+SENHA DO BANCO DE DADOS:
+
+TXIGrem1dLPY5aKW
+
+string de conexão: mongodb+srv://Grandinetti_db_user:TXIGrem1dLPY5aKW@cluster0.4bkoz8e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
