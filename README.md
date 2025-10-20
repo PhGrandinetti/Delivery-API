@@ -21,6 +21,7 @@ Ela simula um sistema de delivery/menu, com autenticação de usuários e gerenc
 
 O projeto segue o padrão de **arquitetura em camadas**, com separação clara de responsabilidades:
 
+<pre>
 src/
 │
 ├── config/ # Configurações e inicialização do banco de dados
@@ -32,7 +33,7 @@ src/
 ├── services/ # Regras de negócio
 ├── validators/ # Validação de entrada de dados
 └── app.js # Ponto de entrada da aplicação
-
+</pre>
 
 ---
 
@@ -132,6 +133,3 @@ Esse arquivo serve como uma **referência rápida** para quem quiser testar o pr
 
 ---
 
-💬 **Dica:**  
-Mantenha suas alterações organizadas e evite commits muito grandes.  
-Isso facilita a revisão e a integração do seu código.
