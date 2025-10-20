@@ -1,6 +1,7 @@
 import UserRepository from '../repositories/user.repository.js'
 import { UserResponseDTO } from '../dtos/user.dto.js'
 
+//Serviço da rota de usuários, com criação, alteração, exposição e como deletar os usuários.
 class UserService {
     static async create(createUserData){
 

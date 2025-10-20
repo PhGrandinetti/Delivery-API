@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
 import {env} from '../config/env.js'
 
+//middleware de autorização. Checa se o token foi recebido da maneira correta.
 export const authMiddleware = (req,res,next) => {
     const authHeader = req.headers.authorization
 

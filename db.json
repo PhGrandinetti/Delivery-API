@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "84a0f255-92d0-40f1-abe8-c0640af3407f",
-      "nome": "admin user",
+      "nome": "admin user update",
       "email": "admin@example.com",
       "senha": "$2b$10$mgWke3KEQtbDNDyecUYjnexRU0ofcGTh.ETXR/KlNQxZulFfNTeLq",
       "endereco": "endereço do restaurante",

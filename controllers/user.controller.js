@@ -1,5 +1,6 @@
 import UserService from '../services/user.service.js'
 
+//Controlador do menu de comida. Com as funções de criar, deletar, modificar e mostrar os usuários.
 class UserController {
     static async create(req,res,next){
         try{

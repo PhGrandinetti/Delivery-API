@@ -4,6 +4,7 @@ import { loginValidator } from '../validators/auth.validator.js'
 
 const router = express.Router()
 
+//Rota de login.
 router.post(
     '/login',
     loginValidator,

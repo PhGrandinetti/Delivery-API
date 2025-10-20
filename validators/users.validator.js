@@ -1,5 +1,6 @@
 import {param,body} from 'express-validator'
 
+//Validação dos dados fornecidos na criação de usuários.
 export const createUserValidation = [
     body('nome')
         .trim()
@@ -28,11 +29,13 @@ export const createUserValidation = [
      
 ]
 
+//Validação do ID de usuários.
 export const userIdValidation = [
     param('id')
         .isUUID().withMessage('ID inválido.'),
 ]
 
+//Validação dos dados fornecidos na alteração de usuários.
 export const updateUserValidation = [
     param('id')
         .isUUID().withMessage('Id inválido.'),

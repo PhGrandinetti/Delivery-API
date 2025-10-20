@@ -1,9 +1,27 @@
-SENHAS [
-    Admin user: admin123
-    Normal user um: user123
-    Normal user dois: user1223
-    Normal user tres: user1233
-]
+LOGINS RÁPIDOS:
+ADMINISTRADOR
+{
+  "email": "admin@example.com",
+  "senha": "admin123"
+}
+
+USUÁRIO 1
+{
+  "email": "user1@example.com", 
+  "senha": "user123"
+}
+
+USUÁRIO 2
+{
+  "email": "user2@example.com", 
+  "senha": "user1223"
+}
+
+USUÁRIO 3
+{
+  "email": "user3@example.com",
+  "senha": "user1233"
+}
 
 CRIAÇÃO RÁPIDA DE USUÁRIOS:
 
@@ -64,8 +82,10 @@ CRIAÇÃO RÁPIDA DE MENU:
       "observacoes": "Contém glutém, Lactose, etc..."
 }
 
-SENHA DO BANCO DE DADOS:
+SUGESTÃO DE PREENHIMENTO DA .ENV:
+*LEMBRAR DE APAGAR O ".example"
 
-TXIGrem1dLPY5aKW
-
-string de conexão: mongodb+srv://Grandinetti_db_user:TXIGrem1dLPY5aKW@cluster0.4bkoz8e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+JWT_SECRET = 'sua-chave-super-secreta-e-longa-12345'
+JWT_EXPIRES_IN = '1h'
+BCRYPT_SALT_ROUNDS = 10
+PORTA = 3000

@@ -1,6 +1,7 @@
 import { MenuResponseDTO } from "../dtos/menu.dto.js";
 import MenuRepository from "../repositories/menu.repository.js";
 
+//Serviço da rota de menu, com criação, delte, alteração e exposição de itens.
 class MenuService{
     static async create(createMenuData){
 

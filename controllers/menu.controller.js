@@ -1,5 +1,6 @@
 import MenuService from '../services/menu.service.js'
 
+//Controlador do menu de comida. Com as funções de criar, deletar, modificar e mostrar os itens do menu.
 class MenuController{
     static async create(req,res,next){
         try{

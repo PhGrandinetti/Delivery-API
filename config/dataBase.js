@@ -1,6 +1,7 @@
 import {Low} from 'lowdb'
 import {JSONFile} from 'lowdb/node'
 
+//CONFIGURAÇÃO DO BANCO DE DADOS
 const defaulData = {
     "users": [
         {

@@ -1,5 +1,6 @@
 import { validationResult } from "express-validator"
 
+//Middleware responsável por checar se as validações foram atendidas.
 export const handleValidationErrors = (req,res,next)=> {
     const errors = validationResult(req)
 

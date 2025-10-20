@@ -24,6 +24,8 @@ router.get(
 )
 
 //ROTAS POST
+
+//Rota de criação de usuários.
 router.post(
     '/',
     authMiddleware,
@@ -34,6 +36,8 @@ router.post(
 )
 
 //ROTAS PATCH
+
+//Rota de alterar usuário.
 router.patch(
     '/:id',
     authMiddleware,
@@ -50,7 +54,7 @@ router.delete(
     checkRole('admin'),
     menuIdValidation,
     handleValidationErrors,
-    MenuController.delete.bind(MenuController)
+    MenuController.delete.bind(MenuController) //O codigo reconhecia o delete como "this.delete", ai esse foi jeito que achei.
 )
 
 

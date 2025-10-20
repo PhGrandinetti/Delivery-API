@@ -1,4 +1,5 @@
 export class UserResponseDTO {
+    //DTO de usuários escondendo a senha.
     constructor(user){
         this.id = user.id
         this.nome = user.nome

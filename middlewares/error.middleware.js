@@ -1,3 +1,4 @@
+//Middleware responsável por lidar com os erros da API.
 export const globalErrorHandler = (error,req,res,next) => {
     console.error("ERRO DETECTADO:", error.message)
     console.error("Stack:", error.stack)

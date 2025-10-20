@@ -1,5 +1,6 @@
 import AuthService from '../services/auth.service.js'
 
+//Controlador da rota de autorizçao. Com a função de login.
 class AuthController {
     static async login(req,res,next){
         try{
@@ -7,7 +8,7 @@ class AuthController {
             const result = await AuthService.login({email,senha})
             res.status(200).json({
                 message: 'Login realizado com sucesso.',
-                ...result
+                result
             })
         } catch (error){
             next(error)

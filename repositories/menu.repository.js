@@ -1,6 +1,7 @@
 import db from '../config/dataBase.js'
 import {v4 as uuidv4} from 'uuid'
 
+//Repositório dos itens do menu. Com as funções de criar, deletar, alterar, mostrar e achar por ID/Nome.
 class MenuRepository{
     static async create(menuData){
         await db.read()
@@ -35,7 +36,18 @@ class MenuRepository{
             throw error
         }
 
-        const updateMenu = {...db.data.menu[index], ...menuData}
+        const menuOriginal = db.data.menu[index]
+
+        const updateMenu = {
+            id: id,
+            nome: menuData.nome || menuOriginal.nome,
+            ingredientes: menuData.ingredientes || menuOriginal.ingredientes,
+            preco: menuData.preco || menuOriginal.preco,
+            observacoes: menuData.observacoes || menuOriginal.observacoes
+        }
+        
+        db.data.menu[index] = updateMenu
+
         await db.write()
 
         return updateMenu

@@ -1,5 +1,7 @@
 import { param, body } from "express-validator";
 
+
+//Validação dos dados fornecidos na criação de itens.
 export const createMenuValidator = [
     body('nome')
         .trim()
@@ -26,11 +28,13 @@ export const createMenuValidator = [
         .withMessage('Observações devem ser texto.'),
 ]
 
+//Validação do ID de itens.
 export const menuIdValidation = [
     param('id')
         .isUUID().withMessage('ID inválido.'),
 ]
 
+//Validação dos dados fornecidos na alteração de itens.
 export const updateMenuValidator = [
     param('id')
         .isUUID().withMessage('ID inválido.'),

@@ -3,6 +3,8 @@ import { env } from '../config/env.js'
 import bcrypt from 'bcrypt'
 import UserRepository from '../repositories/user.repository.js'
 
+
+//Serviço de autenticação da rota de login. Utilizndo bcrypt.
 class AuthService {
     static async login({email,senha}){
         const user = await UserRepository.findByEmail(email)

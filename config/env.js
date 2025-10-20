@@ -1,6 +1,7 @@
 import dotenv from "dotenv"
 dotenv.config()
 
+//CONFIGURAÇAO DAS VARIÁVEIS DE AMBIENTE
 export const env = {
     jwtSecret: process.env.JWT_SECRET,
     jwtExpiresIn: process.env.JWT_EXPIRES_IN,

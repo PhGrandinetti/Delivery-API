@@ -13,7 +13,6 @@ router.get(
     '/',
     authMiddleware,
     checkRole('admin'),
-    userIdValidation,
     handleValidationErrors,
     UserController.getAll
 )
