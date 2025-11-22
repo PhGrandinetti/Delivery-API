@@ -5,7 +5,7 @@ export const createUserValidation = [
     body('nome')
         .trim()
         .notEmpty().withMessage('Nome é obrigatório.')
-        .matches(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/) // matche de nome garantindo que seja somente letra e com a acentução do portugues
+        .matches(/^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/) // matche de nome garantindo que seja somente letra e com a acentução do portugues
         .withMessage('Nome deve um texto com apenas letras e espaços.'),
 
     body('email')

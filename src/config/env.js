@@ -7,4 +7,5 @@ export const env = {
     jwtExpiresIn: process.env.JWT_EXPIRES_IN,
     bcryptSaltRounds: parseInt(process.env.BCRYPT_SALT_ROUNDS),
     porta: process.env.PORTA,
+    mongoUri: process.env.MONGO_URI,
 }
