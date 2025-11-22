@@ -1,32 +1,18 @@
-import {Low} from 'lowdb'
-import {JSONFile} from 'lowdb/node'
+import mongoose from "mongoose";
+import { env } from "./env";
 
-//CONFIGURAÇÃO DO BANCO DE DADOS
-const defaulData = {
-    "users": [
-        {
-            "id": 1,
-            "nome": "admin user",
-            "email": "admin@example.com",
-            "senha": "admin123",
-            "endereco": "endereço do restaurante",
-            "contato": "89999999",
-            "role": "admin"
-        },
-    ],
+const uri = env.mongoUri
 
-    "menu": [
-        {
-            "id": 1,
-            "nome": "macarronada",
-            "ingredientes": "macarrao e nada",
-            "preco": "R$ 29,99",
-            "observacoes": "Contém glutém, etc.."
-        },
-    ],
+const connectDB = async () => {
+    try{
+        await mongoose.connect(uri, {
+            dbName: 'delivery'
+        });
+        console.log('Conectado com sucesso ao banco de dados.')
+    } catch(error){
+        console.error('Falha ao conectar ao banco de dados.', error)
+        process.exit(1)
+    }
 }
 
-const adapter = new JSONFile('db.json')
-const db = new Low(adapter, defaulData)
-
-export default db
+export {connectDB}
