@@ -23,6 +23,10 @@ class UserRepository {
         return await User.findByIdAndDelete(id)
     }
 
+    async findByEmail(email){
+        return await User.findOne({ email });
+    }
+    
 }
 
 export default new UserRepository()

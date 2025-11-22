@@ -3,28 +3,28 @@ import MenuRepository from "../repositories/menu.repository.js";
 
 //Serviço da rota de menu, com criação, delte, alteração e exposição de itens.
 class MenuService{
-    static async create(createMenuData){
+    async create(createMenuData){
 
-        const name = await MenuRepository.findByName(createMenuData.nome)
+        const nome = await MenuRepository.findByName(createMenuData.nome)
         
-        if(name){
-            const error = new Error('Item já existente. Deseja adicionar outro igual?')
+        if(nome){
+            const error = new Error('Item já existente.')
             error.statusCode = 409
             throw error
         }
         
         const newMenuFromDb = await MenuRepository.create(createMenuData)
 
-        return new MenuResponseDTO(newMenuFromDb)
+        return MenuResponseDTO(newMenuFromDb)
 
     }
 
-    static async getAll(){
+    async getAll(){
         const menu = await MenuRepository.getAll()
-        return menu.map((menu)=>new MenuResponseDTO(menu))
+        return MenuResponseDTO(menu)
     }
 
-    static async update(id, updateMenuData){
+    async update(id, updateMenuData){
         
         const item = await MenuRepository.findById(id)
 
@@ -33,12 +33,22 @@ class MenuService{
             error.statusCode = 404
             throw error
         }
+
+        //Evitar duplicidade de nome, caso tenha sido alterado.
+        if (updateMenuData.nome && updateMenuData.nome !== item.nome) {
+            const existing = await MenuRepository.findByName(updateMenuData.nome);
+            if (existing) {
+                const error = new Error("Já existe outro item com esse nome.");
+                error.statusCode = 409;
+                throw error;
+            }
+        }
         
         const updateMenuFromDb = await MenuRepository.update(id, updateMenuData)
-        return new MenuResponseDTO(updateMenuFromDb)
+        return MenuResponseDTO(updateMenuFromDb)
     }
 
-    static async getById(id){
+    async getById(id){
         const menu = await MenuRepository.findById(id)
 
         if(!menu){
@@ -47,21 +57,22 @@ class MenuService{
             throw error
         }
 
-        return new MenuResponseDTO(menu)
+        return MenuResponseDTO(menu)
     }
 
-    static async delete(id){
+    async delete(id){
         
-        const deletedMenu = await MenuRepository.delete(id)
-
-        if(!deletedMenu){
+        const exist = MenuRepository.findById(id)
+        
+        if(!exist){
             const error = new Error('Item não encontrado.')
             error.statusCode = 404
             throw error
         }
-
-        return new MenuResponseDTO(deletedMenu)
+        
+        const deletedMenu = await MenuRepository.delete(id)
+        return MenuResponseDTO(deletedMenu)
     }
 }
 
-export default MenuService
+export default new MenuService()

@@ -23,6 +23,9 @@ class MenuRepository{
         return await Menu.findByIdAndDelete(id)
     }
 
+    async findByName(nome){
+        return await Menu.findOne({ nome });
+    }
 }
 
 export default new MenuRepository()
