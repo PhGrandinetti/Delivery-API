@@ -1,4 +1,4 @@
-import { MenuResponseDTO } from "../dtos/menu.dto.js";
+import { toItensDTO,toMenuDTO } from "../dtos/menu.dto.js";
 import MenuRepository from "../repositories/menu.repository.js";
 
 //Serviço da rota de menu, com criação, delte, alteração e exposição de itens.
@@ -15,13 +15,13 @@ class MenuService{
         
         const newMenuFromDb = await MenuRepository.create(createMenuData)
 
-        return MenuResponseDTO(newMenuFromDb)
+        return toMenuDTO(newMenuFromDb)
 
     }
 
     async getAll(){
         const menu = await MenuRepository.getAll()
-        return MenuResponseDTO(menu)
+        return toItensDTO(menu)
     }
 
     async update(id, updateMenuData){
@@ -45,7 +45,7 @@ class MenuService{
         }
         
         const updateMenuFromDb = await MenuRepository.update(id, updateMenuData)
-        return MenuResponseDTO(updateMenuFromDb)
+        return toMenuDTO(updateMenuFromDb)
     }
 
     async getById(id){
@@ -57,7 +57,7 @@ class MenuService{
             throw error
         }
 
-        return MenuResponseDTO(menu)
+        return toMenuDTO(menu)
     }
 
     async delete(id){
@@ -71,7 +71,7 @@ class MenuService{
         }
         
         const deletedMenu = await MenuRepository.delete(id)
-        return MenuResponseDTO(deletedMenu)
+        return toMenuDTO(deletedMenu)
     }
 }
 

@@ -1,10 +1,20 @@
-export class MenuResponseDTO{
-    //Não tem nada a esconder do menu.
-    constructor(menu){
-        this.id = menu.id
-        this.nome = menu.nome
-        this.ingredientes = menu.ingredientes
-        this.preco = menu.preco
-        this.observacoes = menu.observacoes
+const toMenuDTO = (menu) => {
+
+    if (!menu) {
+        return null
     }
-}
+
+    //Transformando objeto mongoose para objeto plano,
+    const plainMenu = menu.toObject ? menu.toObject() : menu
+
+    const { _id, ...menuDetails } = plainMenu
+
+    return menuDetails;
+};
+
+const toItensDTO = (itens) => {
+
+    return itens.map(toMenuDTO)
+};
+
+export { toMenuDTO, toItensDTO }

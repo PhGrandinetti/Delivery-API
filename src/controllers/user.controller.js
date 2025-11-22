@@ -1,6 +1,6 @@
 import UserService from '../services/user.service.js'
 
-//Controlador do menu de comida. Com as funções de criar, deletar, modificar e mostrar os usuários.
+//Controlador de usuarios. Com as funções de criar, deletar, modificar e mostrar os usuários.
 class UserController {
     static async create(req,res,next){
         try{
@@ -50,7 +50,7 @@ class UserController {
             const {id} = req.params
             const deletedUser = await UserService.delete(id)
 
-            res.status(204).json({message: 'Usuário deletado com sucesso.', user: deletedUser})
+            res.status(200).json({message: 'Usuário deletado com sucesso.', user: deletedUser})
         } catch(error){
             next(error)
         }

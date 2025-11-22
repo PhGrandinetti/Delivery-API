@@ -49,7 +49,7 @@ class MenuController{
             const {id} = req.params
             const deletedMenu = await MenuService.delete(id)
 
-            res.status(204).json({message: 'Item deletado com sucesso.', menu: deletedMenu})
+            res.status(200).json({message: 'Item deletado com sucesso.', menu: deletedMenu})
         } catch(error){
             next(error)
         }

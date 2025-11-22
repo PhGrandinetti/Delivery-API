@@ -1,5 +1,5 @@
 import UserRepository from '../repositories/user.repository.js'
-import { UserResponseDTO } from '../dtos/user.dto.js'
+import { toUserDTO, toUsersDTO } from '../dtos/user.dto.js'
 import bcrypt from "bcrypt"
 
 //Serviço da rota de usuários, com criação, alteração, exposição e como deletar os usuários.
@@ -21,7 +21,7 @@ class UserService {
         createUserData.senha = hashedSenha
 
         const newUserFromDb = await UserRepository.create(createUserData)
-        const newUserDto = UserResponseDTO(newUserFromDb)
+        const newUserDto = toUserDTO(newUserFromDb)
 
         return newUserDto
 
@@ -29,7 +29,7 @@ class UserService {
 
     async getAll(){
         const userFromRepo = await UserRepository.findAll()
-        const userDTO = UserResponseDTO(userFromRepo)
+        const userDTO = toUsersDTO(userFromRepo)
         return userDTO
     }
 
@@ -75,7 +75,7 @@ class UserService {
             throw error
         }
 
-        const userDTO = UserResponseDTO(user)
+        const userDTO = toUserDTO(user)
 
         return userDTO
     }
