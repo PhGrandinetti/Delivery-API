@@ -7,6 +7,9 @@ import { authMiddleware } from '../middlewares/auth.middleware.js'
 
 const router = express.Router()
 
+// ------------------
+// ROTAS JSON (API)
+// ------------------
 
 //ROTAS GET
 router.get(
@@ -52,8 +55,25 @@ router.delete(
     checkRole('admin'),
     menuIdValidation,
     handleValidationErrors,
-    MenuController.delete.bind(MenuController) //O codigo reconhecia o delete como "this.delete", ai esse foi jeito que achei.
+    MenuController.delete.bind(MenuController) //Mantém a referência correta do this.
 )
 
+// -----------------
+// ROTAS PUG(HTML)
+// -----------------
+
+// Página do cardápio
+router.get(
+    '/view',
+    MenuController.renderMenu
+);
+
+// Página de detalhes de um item
+router.get(
+    '/view/:id',
+    menuIdValidation,
+    handleValidationErrors,
+    MenuController.renderMenuItem
+);
 
 export default router

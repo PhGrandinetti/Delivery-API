@@ -1,14 +1,10 @@
 import { validationResult } from "express-validator"
 
 //Middleware responsável por checar se as validações foram atendidas.
-export const handleValidationErrors = (req,res,next)=> {
+export const handleValidationErrors = (req, res, next) => {
     const errors = validationResult(req)
-
     if(!errors.isEmpty()){
-        const error = new Error('Erro de Validação')
-        error.statusCode = 400
-        return next(error)
+        return res.status(400).json({ errors: errors.array() })
     }
-
     next()
 }

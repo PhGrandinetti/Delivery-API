@@ -57,6 +57,32 @@ class MenuController{
             next(error)
         }
     }
+
+    //Renderização PUG
+    async renderMenu(req, res, next) {
+        try {
+            const menuItemsDto = await MenuService.getAll();
+            
+            res.render('menu', { title: 'Cardápio', menu: menuItemsDto});
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async renderMenuItem(req, res, next) {
+        try {
+            const { id } = req.params;
+            const menuItemDto = await MenuService.getById(id);
+
+            if (!menuItemDto) {
+                return res.status(404).render('error', { message: 'Item não encontrado' });
+            }
+
+            res.render('menu-detail', { title: menuItemDto.nome, item: menuItemDto});
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 export default new MenuController()

@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1= item.nome
+    p Ingredientes: #{item.ingredientes}
+    p Preço: #{item.preco}
+    if item.observacoes
+        p Observações: #{item.observacoes}
+    a(href="/menu/view") Voltar
