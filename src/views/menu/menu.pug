@@ -1,8 +1,25 @@
 extends layout
 
 block content
-    h1 Cardápio
-    ul
-        each item in menu
-            li
-                a(href=`/menu/view/${item._id}`) #{item.nome} - #{item.preco}
+
+    if menu.length > 0
+        table
+            thead
+                tr
+                    th #
+                    th Restaurante
+                    th Prato
+                    th Ingredientes
+                    th Observações
+                    th Preço
+            tbody
+                each item, index in menu
+                    tr
+                        td= index + 1
+                        td= item.owner || 'Desconhecido'
+                        td= item.nome
+                        td= item.ingredientes
+                        td= item.observacoes || '-'
+                        td= item.preco
+    else
+        p.empty-message Nenhum item de menu cadastrado.

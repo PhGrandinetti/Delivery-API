@@ -22,7 +22,7 @@ const menuSchema = mongoose.Schema({
         trim: true,
         match: /^R\$\s?\d{1,3}(\.\d{3})*,\d{2}$/
     },
-    observações: {
+    observacoes: {
         type: String,
         trim: true,
         maxlength: 300,

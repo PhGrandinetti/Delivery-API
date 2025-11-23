@@ -8,11 +8,11 @@ class MenuRepository{
     }
 
     async getAll(){
-        return await Menu.find()
+        return await Menu.find().populate('owner', 'nome')
     }
 
     async findById(id){
-        return await Menu.findById(id)
+        return await Menu.findById(id).populate('owner', 'nome')
     }
 
     async update(id, updateData){

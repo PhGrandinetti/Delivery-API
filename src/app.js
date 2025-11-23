@@ -15,10 +15,9 @@ const __dirname = path.dirname(__filename)
 const app = express()
 
 
-// Middleware para JSON e Formulários
+// Middleware para JSON
 //=================================================================
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 //=================================================================
 
 // Configuração do PUG
