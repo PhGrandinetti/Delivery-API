@@ -1,4 +1,5 @@
-import { param, body } from "express-validator";
+import { param, body } from "express-validator"
+import mongoose from "mongoose"
 
 
 //Validação dos dados fornecidos na criação de itens.
@@ -31,13 +32,12 @@ export const createMenuValidator = [
 //Validação do ID de itens.
 export const menuIdValidation = [
     param('id')
-        .isUUID().withMessage('ID inválido.'),
+    .custom(value => mongoose.Types.ObjectId.isValid(value))
+    .withMessage('ID inválido.')
 ]
 
 //Validação dos dados fornecidos na alteração de itens.
 export const updateMenuValidator = [
-    param('id')
-        .isUUID().withMessage('ID inválido.'),
 
     body('nome')
         .trim()

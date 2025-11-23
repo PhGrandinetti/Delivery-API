@@ -11,8 +11,6 @@ const router = express.Router()
 //ROTAS GET
 router.get(
     '/',
-    menuIdValidation,
-    handleValidationErrors,
     MenuController.getAll
 )
 
@@ -25,7 +23,7 @@ router.get(
 
 //ROTAS POST
 
-//Rota de criação de usuários.
+//Rota de criação de itens.
 router.post(
     '/',
     authMiddleware,

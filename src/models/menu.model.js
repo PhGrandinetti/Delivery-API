@@ -27,6 +27,11 @@ const menuSchema = mongoose.Schema({
         trim: true,
         maxlength: 300,
         match: /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s\-\(\)&'+\/!;:,#.?\*%º°]+$/
+    },
+    owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
     }
 }, {
     timestamps: true

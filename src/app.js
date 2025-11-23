@@ -4,6 +4,7 @@ import authRouter from './routes/auth.router.js'
 import menuRouter from './routes/menu.router.js'
 import { globalErrorHandler } from './middlewares/error.middleware.js'
 import { env } from './config/env.js'
+import {connectDB} from './config/dataBase.js'
 
 const app = express()
 
@@ -15,6 +16,9 @@ app.use('/api/menu', menuRouter)
 
 app.use(globalErrorHandler)
 
-app.listen(env.porta, () => {
-    console.log(`Servidor rodando na porta ${env.porta}`)
+connectDB().then(() => {
+    app.listen(env.porta, () => {
+        console.log(`Servidor rodando na porta ${env.porta}`)
+    })
 })
+    

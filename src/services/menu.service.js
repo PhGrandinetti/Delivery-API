@@ -3,11 +3,13 @@ import MenuRepository from "../repositories/menu.repository.js";
 
 //Serviço da rota de menu, com criação, delte, alteração e exposição de itens.
 class MenuService{
-    async create(createMenuData){
+    async create(createMenuData, userId){
 
-        const nome = await MenuRepository.findByName(createMenuData.nome)
+        createMenuData.owner = userId
+
+        const exist = await MenuRepository.findByNameAndOwner(createMenuData.nome, userId)
         
-        if(nome){
+        if(exist){
             const error = new Error('Item já existente.')
             error.statusCode = 409
             throw error
@@ -24,7 +26,7 @@ class MenuService{
         return toItensDTO(menu)
     }
 
-    async update(id, updateMenuData){
+    async update(id, updateMenuData, userId){
         
         const item = await MenuRepository.findById(id)
 
@@ -34,9 +36,16 @@ class MenuService{
             throw error
         }
 
+        //Verificar se o item pertence mesmo ao usuário que está tentando editar
+        if(item.owner.toString() !== userId){
+            const error = new Error("Você não tem permissão para editar este item.")
+            error.statusCode = 403
+            throw error
+        }
+
         //Evitar duplicidade de nome, caso tenha sido alterado.
         if (updateMenuData.nome && updateMenuData.nome !== item.nome) {
-            const existing = await MenuRepository.findByName(updateMenuData.nome);
+            const existing = await MenuRepository.findByNameAndOwner(updateMenuData.nome, userId);
             if (existing) {
                 const error = new Error("Já existe outro item com esse nome.");
                 error.statusCode = 409;
@@ -60,13 +69,20 @@ class MenuService{
         return toMenuDTO(menu)
     }
 
-    async delete(id){
+    async delete(id, userId){
         
-        const exist = MenuRepository.findById(id)
+        const item = await MenuRepository.findById(id)
         
-        if(!exist){
+        if(!item){
             const error = new Error('Item não encontrado.')
             error.statusCode = 404
+            throw error
+        }
+
+        //Verificação se o item pertence ao mesmo dono que está deletando
+        if (item.owner.toString() !== userId) {
+            const error = new Error("Você não tem permissão para deletar este item.")
+            error.statusCode = 403
             throw error
         }
         

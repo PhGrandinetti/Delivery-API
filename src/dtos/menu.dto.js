@@ -9,6 +9,7 @@ const toMenuDTO = (menu) => {
 
     const { _id, ...menuDetails } = plainMenu
 
+
     return menuDetails;
 };
 

@@ -7,7 +7,7 @@ class MenuRepository{
         return await Menu.create(menuData)
     }
 
-    async findAll(){
+    async getAll(){
         return await Menu.find()
     }
 
@@ -23,8 +23,8 @@ class MenuRepository{
         return await Menu.findByIdAndDelete(id)
     }
 
-    async findByName(nome){
-        return await Menu.findOne({ nome });
+    async findByNameAndOwner(name, ownerId) {
+        return await Menu.findOne({ nome: name, owner: ownerId });
     }
 }
 

@@ -2,10 +2,11 @@ import MenuService from '../services/menu.service.js'
 
 //Controlador do menu de comida. Com as funções de criar, deletar, modificar e mostrar os itens do menu.
 class MenuController{
-    static async create(req,res,next){
+    async create(req,res,next){
         try{
+            const userId = req.user.id
             const createMenuData = req.body
-            const newMenuDto = await MenuService.create(createMenuData)
+            const newMenuDto = await MenuService.create(createMenuData, userId)
             res.status(201).json(newMenuDto)
 
         } catch (error){
@@ -13,7 +14,7 @@ class MenuController{
         }
     }
 
-    static async getAll(req,res,next){
+    async getAll(req,res,next){
         try{
             const menuDto = await MenuService.getAll()
             res.status(200).json(menuDto)
@@ -22,7 +23,7 @@ class MenuController{
         }
     }
 
-    static async getById(req,res,next){
+    async getById(req,res,next){
         try{
             const {id} = req.params
             const menu = await MenuService.getById(id)
@@ -32,22 +33,24 @@ class MenuController{
         }
     }
 
-    static async update(req,res,next){
+    async update(req,res,next){
         try{
             const {id} = req.params
+            const userId = req.user.id
             const updateMenuData = req.body
 
-            const updateMenuDto = await MenuService.update(id, updateMenuData)
+            const updateMenuDto = await MenuService.update(id, updateMenuData, userId)
             res.status(200).json(updateMenuDto)
         } catch(error){
             next(error)
         }
     }
 
-    static async delete(req,res,next){
+    async delete(req,res,next){
         try{
             const {id} = req.params
-            const deletedMenu = await MenuService.delete(id)
+            const userId = req.user.id
+            const deletedMenu = await MenuService.delete(id, userId)
 
             res.status(200).json({message: 'Item deletado com sucesso.', menu: deletedMenu})
         } catch(error){
@@ -56,4 +59,4 @@ class MenuController{
     }
 }
 
-export default MenuController
+export default new MenuController()
