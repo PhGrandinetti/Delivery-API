@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #6fa8dc; /* Azul bem suave */
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Retângulo superior */
+.top-bar {
+    width: 100%;
+    background: #003366; /* azul escuro */
+    padding: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Título */
+.page-title {
+    color: white;
+    font-size: 28px;
+    margin: 0;
+    text-align: center;
+}
+
+/* Quadradinhos Home e User */
+.nav-buttons {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.nav-square {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-square img {
+    width: 28px;
+    height: 28px;
+}

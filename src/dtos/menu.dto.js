@@ -7,19 +7,20 @@ const toMenuDTO = (menu) => {
     //Transformando objeto mongoose para objeto plano,
     const plainMenu = menu.toObject ? menu.toObject() : menu
 
-    const { nome, ingredientes, preco, observacoes, owner } = plainMenu;
-
+    const { _id, nome, ingredientes, preco, observacoes, owner, imagem} = plainMenu;
+    
     return {
+        _id,
         nome,
         ingredientes,
         preco,
         observacoes,
-        owner: owner.nome
+        owner: owner.nome,
+        imagem
     };
 };
 
 const toItensDTO = (itens) => {
-
     return itens.map(toMenuDTO)
 };
 

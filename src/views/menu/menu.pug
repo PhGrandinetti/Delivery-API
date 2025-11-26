@@ -1,25 +1,20 @@
 extends layout
 
-block content
+block styles
+  link(rel="stylesheet", href="/css/menu.css")
 
-    if menu.length > 0
-        table
-            thead
-                tr
-                    th #
-                    th Restaurante
-                    th Prato
-                    th Ingredientes
-                    th Observações
-                    th Preço
-            tbody
-                each item, index in menu
-                    tr
-                        td= index + 1
-                        td= item.owner || 'Desconhecido'
-                        td= item.nome
-                        td= item.ingredientes
-                        td= item.observacoes || '-'
-                        td= item.preco
-    else
-        p.empty-message Nenhum item de menu cadastrado.
+block content
+  .menu-container
+    each item in menu
+      .menu-card
+        .menu-owner #{item.owner}
+
+        if item.imagem
+          img.menu-image(src=`/img/products/${item.imagem}`)
+        else
+          img.menu-image(src="/img/products/default.png")
+        
+        a.menu-name(href=`/menu/${item.id}`) #{item.nome}
+        .menu-price Preço: R$ #{item.preco}
+        .menu-obs Observações: #{item.observacoes}
+        .menu-ingredients Ingredientes: #{item.ingredientes}

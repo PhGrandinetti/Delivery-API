@@ -1,20 +1,31 @@
 extends layout.pug
 
+block styles
+  link(rel="stylesheet", href="/css/menu-details.css")
+
 block content
-  if item
-    table
-      tbody
-        tr
-          th Nome
-          td= item.nome
-        tr
-          th Ingredientes
-          td= item.ingredientes
-        tr
-          th Preço
-          td= item.preco
-        tr
-          th Observações
-          td= item.observacoes
-  else
-    p.empty-message Item não encontrado.
+  .details-container
+    .details-card
+
+      .details-owner Restaurante: #{item.owner}
+
+      if item.imagem
+          img.details-image(src=`/img/products/${item.imagem}`)
+      else
+          img.details-image(src="/img/products/default.png")
+
+      h2.details-name #{item.nome}
+
+      .details-info
+        p
+          strong Preço:
+          |  R$ #{item.preco}
+
+        p
+          strong Observações:
+          |  #{item.observacoes || "Nenhuma"}
+          
+        p
+          strong Ingredientes:
+          |  #{item.ingredientes}
+

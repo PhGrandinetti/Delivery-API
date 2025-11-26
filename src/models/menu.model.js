@@ -29,9 +29,13 @@ const menuSchema = mongoose.Schema({
         match: /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s\-\(\)&'+\/!;:,#.?\*%º°]+$/
     },
     owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    imagem: {
+        type: String,
+        required: false
     }
 }, {
     timestamps: true

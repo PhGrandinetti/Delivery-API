@@ -66,6 +66,7 @@ CRIAÇÃO RÁPIDA DE MENU:
       "ingredientes": "macarrao e nada",
       "preco": "R$ 29,99",
       "observacoes": "Contém glutém, etc.."
+      "imagem": "https://anamariareceitas.com.br/wp-content/uploads/2024/06/10-768x512.jpg"
 }
 
 {

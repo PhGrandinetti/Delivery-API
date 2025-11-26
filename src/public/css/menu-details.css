@@ -1,0 +1,44 @@
+.details-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.details-card {
+    background: white;
+    width: 600px;
+    min-height: 450px;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.details-image {
+    width: 60%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.details-owner {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.details-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.details-info p {
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+.details-info strong {
+    font-weight: bold;
+    margin-right: 6px;
+}
