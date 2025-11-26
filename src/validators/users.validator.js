@@ -1,4 +1,5 @@
 import {param,body} from 'express-validator'
+import mongoose from 'mongoose'
 
 //Validação dos dados fornecidos na criação de usuários.
 export const createUserValidation = [
@@ -32,13 +33,12 @@ export const createUserValidation = [
 //Validação do ID de usuários.
 export const userIdValidation = [
     param('id')
-        .isUUID().withMessage('ID inválido.'),
+    .custom(value => mongoose.Types.ObjectId.isValid(value))
+    .withMessage('ID inválido.')
 ]
 
 //Validação dos dados fornecidos na alteração de usuários.
 export const updateUserValidation = [
-    param('id')
-        .isUUID().withMessage('Id inválido.'),
     
     body('nome')
         .optional()

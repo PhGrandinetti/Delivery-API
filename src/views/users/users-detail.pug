@@ -1,0 +1,24 @@
+extends ../layout.pug
+
+block styles
+  link(rel="stylesheet", href="/css/users-details.css")
+
+block content
+  
+  .detail-container
+    .detail-card
+      h2.user-name #{user.nome}
+      
+      .user-info
+        strong Contato: 
+        | #{user.contato}
+
+      .user-info
+        strong Endereço: 
+        | #{user.endereco}
+
+      .user-info
+        strong Cargo (Role): 
+        | #{user.role}
+
+      a.btn-back(href="/user") ← Voltar para Usuários

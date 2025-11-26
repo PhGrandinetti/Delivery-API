@@ -3,6 +3,7 @@ import userRouter from './routes/user.router.js'
 import authRouter from './routes/auth.router.js'
 import menuRouter from './routes/menu.router.js'
 import viewsMenuRouter from './routes/view-menu.router.js'
+import viewsUserRouter from './routes/view-user.router.js'
 import { globalErrorHandler } from './middlewares/error.middleware.js'
 import { env } from './config/env.js'
 import {connectDB} from './config/dataBase.js'
@@ -38,6 +39,7 @@ app.use('/api/menu', menuRouter)
 //Rotas Pug/templates
 //=================================================================
 app.use('/menu', viewsMenuRouter)
+app.use('/user', viewsUserRouter)
 //=================================================================
 
 // Middleware de tratamento de erros

@@ -63,7 +63,7 @@ class MenuController{
         try {
             const menuItemsDto = await MenuService.getAll();
             
-            res.render('menu/menu', { title: 'Plataform of Selling Items', menu: menuItemsDto});
+            res.render('menu/menu', { title: 'Platform of Selling Items', menu: menuItemsDto});
         } catch (error) {
             next(error);
         }
@@ -78,7 +78,7 @@ class MenuController{
                 return res.status(404).render('error', { message: 'Item não encontrado' });
             }
 
-            res.render('menu/menu-detail', { title: 'Plataform of Selling Items', item: menuItemDto});
+            res.render('menu/menu-detail', { title: 'Platform of Selling Items', item: menuItemDto});
         } catch (error) {
             next(error);
         }

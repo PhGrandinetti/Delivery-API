@@ -2,7 +2,7 @@ import UserService from '../services/user.service.js'
 
 //Controlador de usuarios. Com as funções de criar, deletar, modificar e mostrar os usuários.
 class UserController {
-    static async create(req,res,next){
+    async create(req,res,next){
         try{
 
             const createUserData = req.body
@@ -14,7 +14,7 @@ class UserController {
         }
     }
 
-    static async getAll(req,res,next){
+    async getAll(req,res,next){
         try{
             const usersDto = await UserService.getAll()
             res.status(200).json(usersDto)
@@ -23,7 +23,7 @@ class UserController {
         }
     }
 
-    static async getById(req,res,next){
+    async getById(req,res,next){
         try{
             const {id} = req.params
             const user = await UserService.getById(id)
@@ -33,7 +33,7 @@ class UserController {
         }
     }
 
-    static async update(req,res,next){
+    async update(req,res,next){
         try{
             const {id} = req.params
             const updateData = req.body
@@ -45,7 +45,7 @@ class UserController {
         }
     }
 
-    static async delete(req,res,next){
+    async delete(req,res,next){
         try{
             const {id} = req.params
             const deletedUser = await UserService.delete(id)
@@ -55,6 +55,32 @@ class UserController {
             next(error)
         }
     }
+
+     //Renderização PUG
+        async renderUsers(req, res, next) {
+            try {
+                const usersDto = await UserService.getAll();
+                
+                res.render('users/users', { title: 'Platform of Selling Items', userList: usersDto});
+            } catch (error) {
+                next(error);
+            }
+        }
+    
+        async renderUser(req, res, next) {
+            try {
+                const { id } = req.params;
+                const userDto = await UserService.getById(id);
+    
+                if (!userDto) {
+                    return res.status(404).render('error', { message: 'Usuário não encontrado' });
+                }
+    
+                res.render('users/users-detail', { title: 'Platform of Selling Items', user: userDto});
+            } catch (error) {
+                next(error);
+            }
+        }
 }
 
-export default UserController
+export default new UserController()
